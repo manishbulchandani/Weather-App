@@ -135,12 +135,12 @@ function App() {
   return (
     <>
     {/* Preloading weather images to avoid throttling */}
-    <Image height="4px" width="100vw" src={`${drainy}`}/>
-    <Image height="4px" width="100vw" src={`${nrainy}`}/>
-    <Image height="4px" width="100vw" src={`${dclear}`}/>
-    <Image height="4px" width="100vw" src={`${eclearncloudy}`}/>
-    <Image height="4px" width="100vw" src={`${nclear}`}/>
-    <Image height="4px" width="100vw" src={`${dcloudy}`}/>
+    <Image  src={`${drainy}`}/>
+    <Image  src={`${nrainy}`}/>
+    <Image  src={`${dclear}`}/>
+    <Image  src={`${eclearncloudy}`}/>
+    <Image  src={`${nclear}`}/>
+    <Image  src={`${dcloudy}`}/>
 
       <Flex
       width="100vw"

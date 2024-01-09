@@ -8,7 +8,8 @@ import {
   Flex,
   Input,
   Icon,
-  Button
+  Button,
+  Image
 } from "@chakra-ui/react";
 
 import { FiSun } from "react-icons/fi";
@@ -54,6 +55,7 @@ function App() {
         setbackground(nrainy)
       }
     } 
+    
     else if(desc==="01d"){
       setIcon(<Icon as={FiSun} fontSize={{base:"6rem",md:"6rem",lg:"7rem"}} margin="auto 0"/>)
       if(timedata.hour<17 && timedata.hour>=6){
@@ -106,16 +108,6 @@ function App() {
       console.error("Error fetching time : ",error);
     })
   }
-  // const fetchTime=(weatherdata)=>{
-  //   axios.get(`/api/api/Time/current/coordinate?latitude=${weatherdata.coord.lat}&longitude=${weatherdata.coord.lon}`)
-  //   .then(response=>{
-  //     setTime(response.data);
-  //     changebackground(weatherdata,response.data)
-  //   })
-  //   .catch(error=>{
-  //     console.error("Error fetching time : ",error);
-  //   })
-  // }
 
   useEffect(()=>{
     fetchData(city);
@@ -138,6 +130,14 @@ function App() {
 
   return (
     <>
+    {/* Preloading weather images to avoid throttling */}
+    <Image height="0px" src={`${drainy}`}/>
+    <Image height="0px" src={`${nrainy}`}/>
+    <Image height="0px" src={`${dclear}`}/>
+    <Image height="0px" src={`${eclearncloudy}`}/>
+    <Image height="0px" src={`${nclear}`}/>
+    <Image height="0px" src={`${dcloudy}`}/>
+
       <Flex
       width="100vw"
       height={{base:"110vh",md:"100vh",lg:"100vh"}}

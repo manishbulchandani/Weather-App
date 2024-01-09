@@ -135,9 +135,7 @@ function App() {
   return (
     <>
     {/* Preloading weather images to avoid throttling */}
-    <video width="640" height="360" controls autoplay>
-        <source src={video} type="video/mp4" />
-    </video>
+    
     <Image height="0" src={`${drainy}`}/>
     <Image height="0" src={`${nrainy}`}/>
     <Image height="0" src={`${dclear}`}/>

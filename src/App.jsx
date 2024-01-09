@@ -9,7 +9,7 @@ import {
   Input,
   Icon,
   Button,
-  Image
+  Image,
 } from "@chakra-ui/react";
 
 import { FiSun } from "react-icons/fi";
@@ -36,6 +36,8 @@ function App() {
   const [notFound,setNotFound]=useState(false)
   const [background,setbackground]=useState(dclear)
   const [icon,setIcon]=useState(<Icon as={FiSun} fontSize={{base:"6rem",md:"6rem",lg:"7rem"}} margin="auto 0"/>)
+
+
   const changebackground=(weatherdata,timedata)=>{
     const desc=weatherdata.weather[0].icon
     if(desc==="09d" || desc==="10d"||desc==="11d"||desc==="13d"||desc==="50d" ){
@@ -126,17 +128,19 @@ function App() {
     return formattedTime;
   }
 
+  
+
   const months=["January","February","March","April","May","June","July","August","September","October","November","December"]
 
   return (
     <>
     {/* Preloading weather images to avoid throttling */}
-    <Image height="0px" src={`${drainy}`}/>
-    <Image height="0px" src={`${nrainy}`}/>
-    <Image height="0px" src={`${dclear}`}/>
-    <Image height="0px" src={`${eclearncloudy}`}/>
-    <Image height="0px" src={`${nclear}`}/>
-    <Image height="0px" src={`${dcloudy}`}/>
+    <Image height="4px" width="100vw" src={`${drainy}`}/>
+    <Image height="4px" width="100vw" src={`${nrainy}`}/>
+    <Image height="4px" width="100vw" src={`${dclear}`}/>
+    <Image height="4px" width="100vw" src={`${eclearncloudy}`}/>
+    <Image height="4px" width="100vw" src={`${nclear}`}/>
+    <Image height="4px" width="100vw" src={`${dcloudy}`}/>
 
       <Flex
       width="100vw"
@@ -195,7 +199,7 @@ function App() {
                 flex={{base:"1.5",md:"1","lg":"1"}}
               >
                 <Stack>
-                  <Text fontSize={{base:"2.5rem",md:"3rem",lg:"3.5rem"}}>{(time.hour%12||12)<10?("0"+time.hour%12||12):(time.hour%12||12)}:{time.minute<10?("0"+time.minute):(time.minute)} {Math.floor(time.hour/12)<1 ?("AM"):("PM")}</Text>
+                  <Text fontSize={{base:"2.5rem",md:"3rem",lg:"3.5rem"}}>{(time.hour%12||12)<10?("0"+time.hour%12||12):(time.hour%12||12)}:{time.minute} {Math.floor(time.hour/12)<1 ?("AM"):("PM")}</Text>
                   <Text fontSize="18px" paddingLeft="12px">
                    {months[time.month-1]} {time.day}, {time.year}
                   </Text>

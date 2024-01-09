@@ -93,7 +93,7 @@ function App() {
   }
 
   const fetchTime=(weatherdata)=>{
-    axios.get(`https://timeapi.io/api/Time/current/coordinate?latitude=${weatherdata.coord.lat}&longitude=${weatherdata.coord.lon}`)
+    axios.get(`/api/api/Time/current/coordinate?latitude=${weatherdata.coord.lat}&longitude=${weatherdata.coord.lon}`)
     .then(response=>{
       setTime(response.data);
       changebackground(weatherdata,response.data)

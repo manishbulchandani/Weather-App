@@ -93,7 +93,11 @@ function App() {
   }
 
   const fetchTime=(weatherdata)=>{
-    axios.get(`/api/api/Time/current/coordinate?latitude=${weatherdata.coord.lat}&longitude=${weatherdata.coord.lon}`)
+    axios.get(`https://api.api-ninjas.com/v1/worldtime?city=${weatherdata.name}`,{
+      headers:{
+        "X-Api-Key":import.meta.env.VITE_WORLDTIME_API_KEY
+      }
+    })
     .then(response=>{
       setTime(response.data);
       changebackground(weatherdata,response.data)
@@ -102,6 +106,16 @@ function App() {
       console.error("Error fetching time : ",error);
     })
   }
+  // const fetchTime=(weatherdata)=>{
+  //   axios.get(`/api/api/Time/current/coordinate?latitude=${weatherdata.coord.lat}&longitude=${weatherdata.coord.lon}`)
+  //   .then(response=>{
+  //     setTime(response.data);
+  //     changebackground(weatherdata,response.data)
+  //   })
+  //   .catch(error=>{
+  //     console.error("Error fetching time : ",error);
+  //   })
+  // }
 
   useEffect(()=>{
     fetchData(city);
@@ -186,7 +200,7 @@ function App() {
                    {months[time.month-1]} {time.day}, {time.year}
                   </Text>
                   <Text fontSize="18px" paddingLeft="12px">
-                    {time.dayOfWeek}
+                    {time.day_of_week}
                   </Text>
                 </Stack>
                 <HStack margin="auto 0 0 auto" fontSize="18px">
